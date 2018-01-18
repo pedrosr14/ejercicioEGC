@@ -1,0 +1,55 @@
+= Ejercicio 1 =
+
+1) Cree un repositorio git a partir del contenido del fichero .zip
+   que se le ofrece.
+
+2) Modifique el fichero Application.java para que añada al principio del cuerpo del método main la siguiente línea de código:
+
+     logger.info("Initializing application...");
+
+3) En una rama denominada 'next', traduzca al castellano ese mensaje.
+
+4) En la rama 'master', modifique el mensaje para que diga "Initializing task-manager".
+
+5) Una la rama 'next' a la rama 'master'
+
+6) Entrega: Envíe un fichero zip con la carpeta al email: pneira@us.es. Emplee como asunto [EGC][1EJ] Apellidos, Nombre. Ponga en copia también el correo electrónico del profesor que está en el aula para que pueda comprobar la entrega.
+
+IMPORTANTE: Si no has hecho el ejercicio, envía el correo con el contenido: "No realizado". Si falta correo para algún ejercicio se considerará como NO PRESENTADO a la totalidad del examen.
+
+
+= Ejercicio 2 =
+
+Tienes el código de un proyecto implementado en Java 1.8. Este proyecto está pensado para generar un JAR que, al ejecutarse, lanzará un servidor web y desplegará en él un API REST de gestión de tareas. Además, se le puede pasar por medio del parámetro PORT el puerto en el que se lanza el servidor. La ejecución del JAR se realiza de la forma habitual. Esto es, si el JAR se llamase mijar-1.0.0.jar, se ejecutaría ``java -jar mijar-1.0.0.jar --PORT=1111``. Una vez ejecutado y cargado el servidor web, se puede acceder al API en la URL: ``http://localhost:1111/tasks``. Se pide:
+
+1) Modifica el pom.xml ya existente de manera para que compile adecuadamente el proyecto y tenga la siguiente configuración:
+   - El proyecto debe pertenecer al grupo es.egc, su formato de empaquetamiento debe ser jar, el artifactId debe ser tu DNI y la versión debe ser la 0.3.0
+   - Elimine la dependencia de spring-boot-starter-thymeleaf ya que no es necesaria.
+   - Incluya como dependencias la versión 5.1.6 del conector java de MySQL (mysql-connector-java), la versión 1.5.7.RELEASE del artefacto spring-boot-starter-actuator, que servirá para añadir unas URLs de gestión al servidor web, y la versión 1.5.7.RELEASE del artefacto spring-boot-starter-test, que servirá exclusivamente para las pruebas unitarias de nuestro código.     
+
+2) Crea un fichero Dockerfile que parta de una imagen de Java y ejecute el JAR generado por este proyecto lanzando el servidor en el puerto 3553 (el comando para ejecutar en un Dockerfile es CMD).
+
+3) Indica en un fichero docker.txt el comando Docker necesario para crear una imagen llamada task-manager a partir del Dockerfile.
+
+4) Lanza la imagen de Docker llamada resinas/egc1718 de forma que redirija el puerto 8080 de tu máquina al puerto 2222 del contenedor. Después entra en http://localhost:8080/docker y añade al fichero docker.txt el comando de Docker que has utilizado y el contenido que aparece en pantalla.
+
+5) Use maven para limpiar la carpeta del proyecto de todos los artefactos generados durante la construcción del mismo.
+
+6) Entrega: Envíe un fichero zip con la carpeta al email: resinas@us.es. Emplee como asunto [EGC][2EJ] Apellidos, Nombre. Ponga en copia también el correo electrónico del profesor que está en el aula para que pueda comprobar la entrega.
+
+IMPORTANTE: Si no has hecho el ejercicio, envía el correo con el contenido: "No realizado". Si falta correo para algún ejercicio se considerará como NO PRESENTADO a la totalidad del examen.
+
+
+= Ejercicio 3 =
+
+1) Haga un fork del repositorio de GitHub resinas/greeting-java. Es un proyecto pensado para generar un WAR y para descargar un JAR en la carpeta dependency dentro de target (target/dependency) llamado webapp-runner.jar. Este JAR, al ejecutarse y pasarle el WAR por línea de comandos, lanza un servidor web y desplega en él el WAR que se le ha pasado por parámetro, que es un API REST de gestión de tareas. La ejecución del JAR se realiza de la forma habitual. Esto es, si el JAR se llamase mijar-1.0.0.jar y el WAR se llamase miwar-1.0.0.war, ambos en la misma carpeta, se ejecutaría ``java -jar mijar-1.0.0.jar miwar-1.0.0.war``.
+
+2) Cree un fichero de configuración de Travis CI para que:
+   - Realice la construcción automática del proyecto utilizando Open JDK 8 y Oracle JDK 8
+   - Envíe un correo a la dirección one@example.com siempre que haya un nuevo build, con un estado diferente respecto al build anterior.
+
+3) [Sólo para alumnos cuyo peso de las prácticas sea 0.3 en lugar de 0.2] Realice los pasos necesarios para desplegar el proyecto de manera automática en Heroku a través de Travis. Incluya la url del despliegue de la aplicación y del fork del repositorio de GitHub en un fichero README en el proyecto.
+
+4) Entrega: Envíe un fichero zip con la carpeta al email: amarquez6@us.es. Emplee como asunto [EGC][3EJ] Apellidos, Nombre. Ponga en copia también el correo electrónico del profesor que está en el aula para que pueda comprobar la entrega.
+
+IMPORTANTE: Si no has hecho el ejercicio, envía el correo con el contenido: "No realizado". Si falta correo para algún ejercicio se considerará como NO PRESENTADO a la totalidad del examen.
